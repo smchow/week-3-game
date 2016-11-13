@@ -15,6 +15,7 @@
    		console.log(" hasWon " + won);
         if (won){
           		string += '<p>You won</p>';
+          		addDetails();
           	} else {
           		string += '<p>Guess the next letter</p>';
           	}

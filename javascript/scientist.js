@@ -1,6 +1,11 @@
-var text = '{"name":"John Johnson","street":"Oslo West 16","phone":"555 1234567"}';
-var text = '{"name":"Einstein, Albert", "ach": "Theories of relativity and E = mc2", "url":"www.famousscientists.com"}';
 
+var text = '{"name":"Einstein, Albert", "ach": "Theories of relativity and E = mc2", "url":"www.famousscientists.com/einstein"}';
+
+				//  '{
+				// "name":"Copernicus, Nicolaus", 
+				// "ach": " Started the scientific revolution", 
+				//  "url":"www.famousscientists.com/einstein"}'
+				 
 var obj = JSON.parse(text);
 
 function addDetails(){

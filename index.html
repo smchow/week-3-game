@@ -56,12 +56,14 @@
       var guesses = [];
       var display = document.querySelector("#display");
       var won = false;
+      
+      var options = (options_list[0]).split("");
+      var pickedWord = options_list[Math.floor(Math.random()*options_list.length)];
       startNewGame();
 
       document.onkeyup = function(event){
         var key = event.key;
-        var options = (options_list[0]).split("");
-        var pickedWord = options_list[Math.floor(Math.random()*options_list.length)];
+        
         
           if (guesses.length < 10 && !won){
             guesses.push(key); //update the user guesses
