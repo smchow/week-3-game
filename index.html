@@ -38,7 +38,7 @@ obj.phone;
     </style>
   </head>
   <body>
-    <p>Choose r, p, s to play</p>
+    <p>Press any letter to play</p>
     <div id="display">
       Welcome to Guess the Scientist
     </div>
@@ -47,10 +47,10 @@ obj.phone;
    	
    	// 1. Create a list of scientist objects
    	// 2. Pick random scientist from list & display blanks for all letters of name
-   	// 3. Loop to input List of guesses
-   	// 	- Check if letter matches & Display if letter matches
-   	// 	- Check number of wrong guesses and redisplay
-   	// 	- If the word is guessed correctly or max number of guesses reached then display extra info
+   	// 3. Loop to input letters
+   	// 	- Check if letter matches & Display
+   	// 	- Check number of wrong guesses and display updated list
+   	// 	- If the word is guessed correctly or max number of guesses reached then display extra info about scientist
    	// 4. Back to step 1
 
       var options_list = ['einstein'];
@@ -59,26 +59,57 @@ obj.phone;
       var guesses = [];
       var display = document.querySelector("#display");
 
+
       /*   */
 
-      function displayResults(word, k){
-        var string = '<p>' + word + '</p>';
+      function displayResults(word, disp, k, guesses){
+        var string = '<p>' + disp + '</p>';
         string += '<p>User chose: ' + k + '<p>';
         string += '<p>Wins: ' + wins; + '</p>';
         string += '<p>Your Guesses: ' + guesses ; + '</p>';
+        string += '<p>Number of Guesses used: ' + guesses.length + ' of 10</p>';
         display.innerHTML = string;
+      }
+
+      /* 
+      */
+
+      function getPartWord(wordarr){
+      			dispWord ="";
+      			for(i=0; i< wordarr.length; i++){
+      					
+      					if (guesses.indexOf(wordarr[i]) > -1){
+
+      						dispWord = dispWord + wordarr[i] + " ";
+      					}else{
+      						dispWord = dispWord + "- ";
+      					}
+      					
+      			}
+      			console.log(dispWord);
+      			return dispWord;
+      }
+
+      function hasWon(dispWord){
+      	console.log(dispWord.indexOf("-"));
+      	if (dispWord.indexOf("-") > -1){
+      		return false;
+      	}else{
+      		return true;
+      	}
       }
 
       document.onkeyup = function(event){
         var key = event.key;
         var options = (options_list[0]).split("");
         var pickedWord = options_list[Math.floor(Math.random()*options_list.length)];
-        console.log(options[2]);
-          if (guesses.length < 5){
+        
+          if (guesses.length < 10){
             guesses.push(key); //update the user guesses
             
-            displayResults(options, key);
-   
+   			var disp = getPartWord(options);
+   			console.log(hasWon(disp));
+   			displayResults(options, disp, key, guesses);
           }else{
             display.innerHTML = "You Lost";
           }
