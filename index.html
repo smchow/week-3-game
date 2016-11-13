@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<!-- <html>
 	<head>
 		<title>Guess the Scientist!</title>	
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -9,6 +9,83 @@
 	<h1> Welcome to Guess the Scientist!</h1>
 
       <script type="text/javascript" src="javascript/game.js"></script>
+      <p id="demo"></p>
+
+<script>
+var text = '{"name":"John Johnson","street":"Oslo West 16","phone":"555 1234567"}';
+
+var obj = JSON.parse(text);
+
+document.getElementById("demo").innerHTML =
+obj.name + "<br>" +
+obj.street + "<br>" +
+obj.phone;
+</script>
+
 
 	</body>
 </html> 
+<!DOCTYPE html> -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My game</title>
+    <style media="screen">
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Choose r, p, s to play</p>
+    <div id="display">
+      Welcome to Guess the Scientist
+    </div>
+
+    <script type="text/javascript">
+   	
+   	// 1. Create a list of scientist objects
+   	// 2. Pick random scientist from list & display blanks for all letters of name
+   	// 3. Loop to input List of guesses
+   	// 	- Check if letter matches & Display if letter matches
+   	// 	- Check number of wrong guesses and redisplay
+   	// 	- If the word is guessed correctly or max number of guesses reached then display extra info
+   	// 4. Back to step 1
+
+      var options_list = ['einstein'];
+      var wins = 0;
+      var losses = 0;
+      var guesses = [];
+      var display = document.querySelector("#display");
+
+      /*   */
+
+      function displayResults(word, k){
+        var string = '<p>' + word + '</p>';
+        string += '<p>User chose: ' + k + '<p>';
+        string += '<p>Wins: ' + wins; + '</p>';
+        string += '<p>Your Guesses: ' + guesses ; + '</p>';
+        display.innerHTML = string;
+      }
+
+      document.onkeyup = function(event){
+        var key = event.key;
+        var options = (options_list[0]).split("");
+        var pickedWord = options_list[Math.floor(Math.random()*options_list.length)];
+        console.log(options[2]);
+          if (guesses.length < 5){
+            guesses.push(key); //update the user guesses
+            
+            displayResults(options, key);
+   
+          }else{
+            display.innerHTML = "You Lost";
+          }
+      }
+
+
+
+    </script>
+  </body>
+</html>
