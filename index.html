@@ -42,8 +42,8 @@ obj.phone;
     <div id="display">
       Welcome to Guess the Scientist
     </div>
-
-    <script type="text/javascript">
+	<script type="text/javascript" src="javascript/game.js"></script>
+    <script type="text/javascript" >
    	
    	// 1. Create a list of scientist objects
    	// 2. Pick random scientist from list & display blanks for all letters of name
@@ -58,63 +58,23 @@ obj.phone;
       var losses = 0;
       var guesses = [];
       var display = document.querySelector("#display");
-
-
-      /*   */
-
-      function displayResults(word, disp, k, guesses){
-        var string = '<p>' + disp + '</p>';
-        string += '<p>User chose: ' + k + '<p>';
-        string += '<p>Wins: ' + wins; + '</p>';
-        string += '<p>Your Guesses: ' + guesses ; + '</p>';
-        string += '<p>Number of Guesses used: ' + guesses.length + ' of 10</p>';
-        display.innerHTML = string;
-      }
-
-      /* 
-      */
-
-      function getPartWord(wordarr){
-      			dispWord ="";
-      			for(i=0; i< wordarr.length; i++){
-      					
-      					if (guesses.indexOf(wordarr[i]) > -1){
-
-      						dispWord = dispWord + wordarr[i] + " ";
-      					}else{
-      						dispWord = dispWord + "- ";
-      					}
-      					
-      			}
-      			console.log(dispWord);
-      			return dispWord;
-      }
-
-      function hasWon(dispWord){
-      	console.log(dispWord.indexOf("-"));
-      	if (dispWord.indexOf("-") > -1){
-      		return false;
-      	}else{
-      		return true;
-      	}
-      }
+      var won = false;
 
       document.onkeyup = function(event){
         var key = event.key;
         var options = (options_list[0]).split("");
         var pickedWord = options_list[Math.floor(Math.random()*options_list.length)];
         
-          if (guesses.length < 10){
+          if (guesses.length < 10 && !won){
             guesses.push(key); //update the user guesses
             
    			var disp = getPartWord(options);
-   			console.log(hasWon(disp));
    			displayResults(options, disp, key, guesses);
-          }else{
+   			
+          } else{
             display.innerHTML = "You Lost";
           }
       }
-
 
 
     </script>
