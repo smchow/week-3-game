@@ -1,4 +1,7 @@
-	
+	function startNewGame(){
+		console.log("start new startNewGame");
+		guesses = [];
+	}	
 
       /*   */
 
@@ -42,8 +45,11 @@
       	if (dispWord.indexOf("-") > -1){
       		return false;
       	}else{
+      		wins++;
       		return true;
       	}
       }
+
+
 
       

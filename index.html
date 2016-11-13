@@ -12,14 +12,7 @@
       <p id="demo"></p>
 
 <script>
-var text = '{"name":"John Johnson","street":"Oslo West 16","phone":"555 1234567"}';
 
-var obj = JSON.parse(text);
-
-document.getElementById("demo").innerHTML =
-obj.name + "<br>" +
-obj.street + "<br>" +
-obj.phone;
 </script>
 
 
@@ -42,7 +35,11 @@ obj.phone;
     <div id="display">
       Welcome to Guess the Scientist
     </div>
+    <div id="details">
+     
+    </div>
 	<script type="text/javascript" src="javascript/game.js"></script>
+	<script type="text/javascript" src="javascript/scientist.js"></script>
     <script type="text/javascript" >
    	
    	// 1. Create a list of scientist objects
@@ -59,6 +56,7 @@ obj.phone;
       var guesses = [];
       var display = document.querySelector("#display");
       var won = false;
+      startNewGame();
 
       document.onkeyup = function(event){
         var key = event.key;
@@ -73,6 +71,9 @@ obj.phone;
    			
           } else{
             display.innerHTML = "You Lost";
+            losses++;
+            startNewGame();
+            addDetails();
           }
       }
 
