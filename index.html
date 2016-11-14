@@ -50,39 +50,22 @@
    	// 	- If the word is guessed correctly or max number of guesses reached then display extra info about scientist
    	// 4. Back to step 1
 
-      var options_list = ['einstein'];
+      var options_list ;
       var wins = 0;
       var losses = 0;
       var guesses = [];
       var display = document.querySelector("#display");
       var won = false;
-
-
-      var options = (options_list[0]).split("");
-      var pickedWord = options_list[Math.floor(Math.random()*options_list.length)];
+      var sci_ind = -1;
+      getRandomName();
+    
+      var options = (options_list).split("");
+      
       startNewGame();
 
       document.onkeyup = function(event){
         var key = event.key;
-        
-          if ( guesses.length == 0 && key == 'y'){
-          		var disp = getPartWord(options);
-   				displayResults(options, disp, "", guesses);
-   				removeDetails();
-          // } else if(guesses.length == 0 && key != 'y'){
-          // 		display.innerHTML = "See you next time.";
-
-          }else if (guesses.length < 10 && !won){
-            guesses.push(key); //update the user guesses
-   			var disp = getPartWord(options);
-   			displayResults(options, disp, key, guesses);
-   			
-          } else{
-            display.innerHTML = "You Lost";
-            losses++;
-            startNewGame();
-            addDetails();
-          }
+         playGame(key);
       }
 
 

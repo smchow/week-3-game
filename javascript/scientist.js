@@ -1,19 +1,31 @@
 
-var text = '{"name":"Einstein, Albert", "ach": "Theories of relativity and E = mc2", "url":"www.famousscientists.com/einstein"}';
+var text =  '{ "scientists" :[{"name":"einstein","fname":"Einstein, Albert", "ach": "Theories of relativity and E = mc2", "url":"www.famousscientists.com/einstein"},'+
+'{"name":"bell","fname":"Bell, Alexander Graham", "ach": "Inventor of the telephone", "url":"www.famousscientists.com/bell"},'+
+'{"name":"curie","fname":"Curie, Marie", "ach": "Discoverer of elements. Radioactivity pioneer", "url":"www.famousscientists.com/curie"}]}';
+//: 
+// 			var text = '{ "employees" : [' +
+// '{ "firstName":"John" , "lastName":"Doe" },' +
+// '{ "firstName":"Anna" , "lastName":"Smith" },' +
+// '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
 
-				//  '{
-				// "name":"Copernicus, Nicolaus", 
-				// "ach": " Started the scientific revolution", 
-				//  "url":"www.famousscientists.com/einstein"}'
 				 
 var obj = JSON.parse(text);
 
-function addDetails(){
+function addDetails(i){
+	console.log("i = "+ i);
 	document.getElementById("details").innerHTML =
-	obj.name + "<br>" +
-	obj.ach + "<br>" +
-	obj.url;
+	obj.scientists[i].fname + "<br>" +
+	obj.scientists[i].ach + "<br>" +
+	obj.scientists[i].url;
 
+}
+
+function getRandomName(){
+	sci_ind = Math.floor(Math.random()*obj.scientists.length);
+	var pickedWord = obj.scientists[sci_ind].name;
+	console.log(pickedWord);
+	options_list = pickedWord;
+	console.log(sci_ind);
 }
 
 function removeDetails(){

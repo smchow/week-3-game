@@ -1,6 +1,7 @@
 	function startNewGame(){
 		console.log("start new startNewGame");
 		guesses = [];
+		
 	}	
 
       /*   */
@@ -53,6 +54,27 @@
       	}
       }
 
+    function playGame(key){
+
+    	 if ( guesses.length == 0 && key == 'y'){
+          		var disp = getPartWord(options);
+   				displayResults(options, disp, "", guesses);
+   				removeDetails();
+          // } else if(guesses.length == 0 && key != 'y'){
+          // 		display.innerHTML = "See you next time.";
+
+          }else if (guesses.length < 10 && !won){
+            guesses.push(key); //update the user guesses
+   			var disp = getPartWord(options);
+   			displayResults(options, disp, key, guesses);
+   			
+          } else{
+            display.innerHTML = "You Lost";
+            losses++;
+            startNewGame();
+            addDetails(sci_ind);
+          }
+    }
 
 
       
