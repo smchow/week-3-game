@@ -31,7 +31,7 @@
     </style>
   </head>
   <body>
-    <p>Press any letter to play</p>
+    <p>Press the letter y to play</p>
     <div id="display">
       Welcome to Guess the Scientist
     </div>
@@ -56,7 +56,8 @@
       var guesses = [];
       var display = document.querySelector("#display");
       var won = false;
-      
+
+
       var options = (options_list[0]).split("");
       var pickedWord = options_list[Math.floor(Math.random()*options_list.length)];
       startNewGame();
@@ -64,10 +65,15 @@
       document.onkeyup = function(event){
         var key = event.key;
         
-        
-          if (guesses.length < 10 && !won){
+          if ( guesses.length == 0 && key == 'y'){
+          		var disp = getPartWord(options);
+   				displayResults(options, disp, "", guesses);
+   				removeDetails();
+          // } else if(guesses.length == 0 && key != 'y'){
+          // 		display.innerHTML = "See you next time.";
+
+          }else if (guesses.length < 10 && !won){
             guesses.push(key); //update the user guesses
-            
    			var disp = getPartWord(options);
    			displayResults(options, disp, key, guesses);
    			

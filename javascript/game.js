@@ -9,6 +9,7 @@
         var string = '<p>' + disp + '</p>';
         string += '<p>User chose: ' + k + '<p>';
         string += '<p>Wins: ' + wins; + '</p>';
+        string += '<p>Losses: ' + losses; + '</p>';
         string += '<p>Your Guesses: ' + guesses ; + '</p>';
         string += '<p>Number of Guesses used: ' + guesses.length + ' of 10</p>';
         won = hasWon(disp);
@@ -16,6 +17,7 @@
         if (won){
           		string += '<p>You won</p>';
           		addDetails();
+          		startNewGame();
           	} else {
           		string += '<p>Guess the next letter</p>';
           	}

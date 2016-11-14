@@ -15,3 +15,7 @@ function addDetails(){
 	obj.url;
 
 }
+
+function removeDetails(){
+	document.getElementById("details").innerHTML = "";
+}
