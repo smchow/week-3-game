@@ -1,7 +1,9 @@
+	
+
 	function startNewGame(){
 		console.log("start new startNewGame");
 		guesses = [];
-		
+
 	}	
 
       /*   */
@@ -55,6 +57,9 @@
       }
 
     function playGame(key){
+    	
+      
+      
 
     	 if ( guesses.length == 0 && key == 'y'){
           		var disp = getPartWord(options);
