@@ -56,11 +56,16 @@
       	}
       }
 
-    function playGame(key){
+      
+function removeDetails(){
+  document.getElementById("details").innerHTML = "";
+}
+
+    function playGame(key, myScientist){
     	
       
       
-
+        var options  = myScientist.name;
     	 if ( guesses.length == 0 && key == 'y'){
           		var disp = getPartWord(options);
    				displayResults(options, disp, "", guesses);

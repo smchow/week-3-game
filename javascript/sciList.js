@@ -16,8 +16,9 @@ function addDetails(i){
 
 function getRandomName(){
 	sci_ind = Math.floor(Math.random()*obj.scientists.length);
-	var pickedWord = obj.scientists[sci_ind].name;
-	console.log(pickedWord);
-	options_list = pickedWord;
+	var pickedSci = obj.scientists[sci_ind];
+	console.log(pickedSci.name);
+	options_list = pickedSci.name;
 	console.log(sci_ind);
+	return pickedSci;
 }

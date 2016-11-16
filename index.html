@@ -22,7 +22,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My game</title>
+    <title>Guess the scientist</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
     <style media="screen">
       img {
         width: 200px;
@@ -31,15 +36,24 @@
     </style>
   </head>
   <body>
+    <h1>Guess the scientist</h1>
     <p>Press the letter y to play</p>
     <div id="display">
       Welcome to Guess the Scientist
     </div>
+    <div class="text-center">
+
+      
+      <button id="playButton" class="btn btn-primary btn-xs"><h2>Continue</h2></button>
+      
+    </div>
+
     <div id="details">
      
     </div>
 	<script type="text/javascript" src="javascript/game.js"></script>
 	<script type="text/javascript" src="javascript/scientist.js"></script>
+	<script type="text/javascript" src="javascript/sciList.js"></script>
     <script type="text/javascript" >
    	
    	// 1. Create a list of scientist objects
@@ -56,17 +70,25 @@
       var guesses = [];
       var display = document.querySelector("#display");
       var won = false;
+      var myScientist;
       var sci_ind = -1;
-      getRandomName();
-    
-      var options = (options_list).split("");
-      
-      startNewGame();
+      var x = document.getElementById("playButton");
+      x.addEventListener("click", function(){
+        alert("button");
+         
+        myScientist = getRandomName();
+        removeDetails();
+        //var options = (options_list).split("");
+        startNewGame();
 
-      document.onkeyup = function(event){
+
+        document.onkeyup = function(event){
         var key = event.key;
-         playGame(key);
+          //alert(key);
+         playGame(key, myScientist);
       }
+      });
+     
 
 
     </script>
