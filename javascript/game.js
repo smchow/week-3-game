@@ -2,7 +2,7 @@
 
 	function startNewGame(){
 		console.log("start new startNewGame");
-		guesses = [];
+		//guesses = [];
 
 	}	
 
@@ -13,13 +13,13 @@
         string += '<p>User chose: ' + k + '<p>';
         string += '<p>Wins: ' + wins; + '</p>';
         string += '<p>Losses: ' + losses; + '</p>';
-        string += '<p>Your Guesses: ' + guesses ; + '</p>';
+        //string += '<p>Your Guesses: ' + guesses ; + '</p>';
         string += '<p>Number of Guesses used: ' + incorrect + ' of 10</p>';
         won = hasWon(disp);
    		console.log(" hasWon " + won);
         if (won){
           		string += '<p>You won</p>';
-          		addDetails();
+          		//addDetails();
           		//startNewGame();
           	} else {
           		string += '<p>Guess the next letter</p>';
@@ -30,7 +30,7 @@
       /* 
       */
 
-      function getPartWord(wordarr){
+      /*function getPartWord(wordarr){
       			dispWord ="";
       			for(i=0; i< wordarr.length; i++){
       					
@@ -45,7 +45,7 @@
       			console.log(dispWord);
             console.log(wordarr + "**" + dispWord);
       			return dispWord;
-      }
+      }*/
 
       function hasWon(dispWord){
       	console.log(dispWord.indexOf("-"));
@@ -64,33 +64,30 @@ function removeDetails(){
 
     function playGame(key, myScientist){
     	
-      
-      
-        var options  = myScientist.name;
-    	 if ( guesses.length == 0 && key == 'y'){
-          		var disp = getPartWord(options);
-   				displayResults(options, disp, "", guesses);
+    	 if ( myScientist.guesses.length == 0 && key == 'y'){
+          		var disp = myScientist.getPartWord();
+   				displayResults(myScientist.name, disp, "", myScientist.guesses);
    				removeDetails();
           // } else if(guesses.length == 0 && key != 'y'){
           // 		display.innerHTML = "See you next time.";
 
-          }else if (guesses.length < 10 && !won){
-            guesses.push(key); //update the user guesses
+          }else if (myScientist.guesses.length < 10 && !won){
+            myScientist.guesses.push(key); //update the user guesses
             if(myScientist.name.indexOf(key) <0) {
               incorrect++;
             }
             console.log(key + "Update **" +myScientist.name.indexOf(key)+ "Update **" + myScientist.name);
-   			    var disp = getPartWord(options);
-   			    displayResults(options, disp, key, guesses);
+   			    var disp = myScientist.getPartWord();
+   			    displayResults(myScientist.name, disp, key, myScientist.guesses);
    			
-          } else if(guesses.length >= 10){
+          /*} else if(guesses.length >= 10){
             display.innerHTML = "You Lost";
             losses++;
             //startNewGame();
-            addDetails(sci_ind);
+            myScientist.addDetails(sci_ind);*/
           } else{
-            displayResults(options, disp, "", guesses);
-            addDetails(sci_ind);
+            displayResults(myScientist.name, disp, "", myScientist.guesses);
+            myScientist.addDetails(sci_ind);
           }
     }
 

@@ -38,20 +38,20 @@
   </head>
   <body>
     <h1>Guess the scientist</h1>
-    <p>Press the letter y to play</p>
-    <div id="display">
-      Welcome to Guess the Scientist
-    </div>
+    
     <div class="text-center">
 
       
-      <button id="playButton" class="btn btn-primary btn-xs"><h2>Continue</h2></button>
-      
+      <button id="playButton" class="btn btn-primary btn-xs"><h2>Start New Game</h2></button>
+      <div id="display">
+            
+      </div>
+      <div id="details">
+     
+      </div>
     </div>
 
-    <div id="details">
-     
-    </div>
+    
 	<script type="text/javascript" src="javascript/game.js"></script>
 	<script type="text/javascript" src="javascript/scientist.js"></script>
 	<script type="text/javascript" src="javascript/sciList.js"></script>
@@ -65,10 +65,10 @@
    	// 	- If the word is guessed correctly or max number of guesses reached then display extra info about scientist
    	// 4. Back to step 1
 
-      var options_list ;
+      //var options_list ;
       var wins = 0;
       var losses = 0;
-      var guesses = [];
+      //var guesses = [];
       var incorrect = 0;
       var display = document.querySelector("#display");
       var won = false;
@@ -76,20 +76,18 @@
       var sci_ind = -1;
       var x = document.getElementById("playButton");
       x.addEventListener("click", function(){
-        alert("button");
-        os = getRandomName();
-        myScientist = new scientist(os.name, os.ach, os.url);
-        removeDetails();
-        //var options = (options_list).split("");
+        
+        myScientist = getRandomName();
+        console.log(myScientist.name);
         startNewGame();
 
 
-        document.onkeyup = function(event){
+        /*document.onkeyup = function(event){
         var key = event.key;
         console.log(key);
           //alert(key);
          playGame(key, myScientist);
-      }
+      }*/
       });
      
 
