@@ -14,13 +14,13 @@
         string += '<p>Wins: ' + wins; + '</p>';
         string += '<p>Losses: ' + losses; + '</p>';
         string += '<p>Your Guesses: ' + guesses ; + '</p>';
-        string += '<p>Number of Guesses used: ' + guesses.length + ' of 10</p>';
+        string += '<p>Number of Guesses used: ' + incorrect + ' of 10</p>';
         won = hasWon(disp);
    		console.log(" hasWon " + won);
         if (won){
           		string += '<p>You won</p>';
           		addDetails();
-          		startNewGame();
+          		//startNewGame();
           	} else {
           		string += '<p>Guess the next letter</p>';
           	}
@@ -43,6 +43,7 @@
       					
       			}
       			console.log(dispWord);
+            console.log(wordarr + "**" + dispWord);
       			return dispWord;
       }
 
@@ -56,7 +57,7 @@
       	}
       }
 
-      
+
 function removeDetails(){
   document.getElementById("details").innerHTML = "";
 }
@@ -75,13 +76,20 @@ function removeDetails(){
 
           }else if (guesses.length < 10 && !won){
             guesses.push(key); //update the user guesses
-   			var disp = getPartWord(options);
-   			displayResults(options, disp, key, guesses);
+            if(myScientist.name.indexOf(key) <0) {
+              incorrect++;
+            }
+            console.log(key + "Update **" +myScientist.name.indexOf(key)+ "Update **" + myScientist.name);
+   			    var disp = getPartWord(options);
+   			    displayResults(options, disp, key, guesses);
    			
-          } else{
+          } else if(guesses.length >= 10){
             display.innerHTML = "You Lost";
             losses++;
-            startNewGame();
+            //startNewGame();
+            addDetails(sci_ind);
+          } else{
+            displayResults(options, disp, "", guesses);
             addDetails(sci_ind);
           }
     }

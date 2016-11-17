@@ -1,6 +1,6 @@
 var text =  '{ "scientists" :[{"name":"einstein","fname":"Einstein, Albert", "ach": "Theories of relativity and E = mc2", "url":"www.famousscientists.com/einstein"},'+
 '{"name":"bell","fname":"Bell, Alexander Graham", "ach": "Inventor of the telephone", "url":"www.famousscientists.com/bell"},'+
-'{"name":"Lovelace","fname":"Lovelace, Ada", "ach": "Mother of computing science", "url":"www.famousscientists.com/lovelace"},'+
+'{"name":"lovelace","fname":"Lovelace, Ada", "ach": "Mother of computing science", "url":"www.famousscientists.com/lovelace"},'+
 '{"name":"curie","fname":"Curie, Marie", "ach": "Discoverer of elements. Radioactivity pioneer", "url":"www.famousscientists.com/curie"}]}';
 
 				 
@@ -21,4 +21,14 @@ function getRandomName(){
 	options_list = pickedSci.name;
 	console.log(sci_ind);
 	return pickedSci;
+}
+function scientist(name, ach,url) {
+  this.name = name;
+  this.ach = ach;
+  this.addDetails = function () {
+    return "Name: " +
+           this.name +
+           " Famous for " +
+           this.ach;
+  };
 }

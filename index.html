@@ -24,9 +24,10 @@
     <meta charset="utf-8">
     <title>Guess the scientist</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+  
     <!-- Added a link to Bootstrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <style media="screen">
       img {
@@ -68,6 +69,7 @@
       var wins = 0;
       var losses = 0;
       var guesses = [];
+      var incorrect = 0;
       var display = document.querySelector("#display");
       var won = false;
       var myScientist;
@@ -75,8 +77,8 @@
       var x = document.getElementById("playButton");
       x.addEventListener("click", function(){
         alert("button");
-         
-        myScientist = getRandomName();
+        os = getRandomName();
+        myScientist = new scientist(os.name, os.ach, os.url);
         removeDetails();
         //var options = (options_list).split("");
         startNewGame();
@@ -84,6 +86,7 @@
 
         document.onkeyup = function(event){
         var key = event.key;
+        console.log(key);
           //alert(key);
          playGame(key, myScientist);
       }
