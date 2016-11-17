@@ -73,18 +73,19 @@
       var won = false;
       //var myScientist;
       var sci_ind = -1;
+
+      //Start game when button is clicked;
       var x = document.getElementById("playButton");
       x.addEventListener("click", function(){
         
         var myScientist = getRandomName();
         console.log(myScientist.name);
-        //startNewGame(myScientist);
-
+        document.getElementById("details").innerHTML = "";
         playGame("", myScientist);
+
         document.onkeyup = function(event){
         var key = event.key;
         console.log(key);
-          //alert(key);
          playGame(key, myScientist);
       }
       });

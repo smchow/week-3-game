@@ -59,9 +59,9 @@
       }*/
 
 
-function removeDetails(){
+/*function removeDetails(){
   document.getElementById("details").innerHTML = "";
-}
+}*/
 
     function playGame(key, myScientist){
       console.log("Should I continue" + myScientist.guessCorrect + "Guesses = "  + myScientist.numGuesses);
