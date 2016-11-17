@@ -39,7 +39,7 @@
   <body>
     <h1>Guess the scientist</h1>
     
-    <div class="text-center">
+    <div class="jumbotron text-center">
 
       
       <button id="playButton" class="btn btn-primary btn-xs"><h2>Start New Game</h2></button>
@@ -72,22 +72,22 @@
       var incorrect = 0;
       var display = document.querySelector("#display");
       var won = false;
-      var myScientist;
+      //var myScientist;
       var sci_ind = -1;
       var x = document.getElementById("playButton");
       x.addEventListener("click", function(){
         
-        myScientist = getRandomName();
+        var myScientist = getRandomName();
         console.log(myScientist.name);
-        startNewGame();
+        startNewGame(myScientist);
 
 
-        /*document.onkeyup = function(event){
+        document.onkeyup = function(event){
         var key = event.key;
         console.log(key);
           //alert(key);
          playGame(key, myScientist);
-      }*/
+      }
       });
      
 

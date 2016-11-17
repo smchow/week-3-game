@@ -1,8 +1,9 @@
 	
 
-	function startNewGame(){
+	function startNewGame(myScientist){
 		console.log("start new startNewGame");
 		//guesses = [];
+    display.innerHTML = myScientist.getPartWord();
 
 	}	
 
@@ -63,8 +64,9 @@ function removeDetails(){
 }
 
     function playGame(key, myScientist){
-    	
-    	 if ( myScientist.guesses.length == 0 && key == 'y'){
+      myScientist.newGuess(key);
+    	display.innerHTML = myScientist.getPartWord();
+    	 /*if ( myScientist.guesses.length == 0 && key == 'y'){
           		var disp = myScientist.getPartWord();
    				displayResults(myScientist.name, disp, "", myScientist.guesses);
    				removeDetails();
@@ -80,15 +82,15 @@ function removeDetails(){
    			    var disp = myScientist.getPartWord();
    			    displayResults(myScientist.name, disp, key, myScientist.guesses);
    			
-          /*} else if(guesses.length >= 10){
+          } else if(guesses.length >= 10){
             display.innerHTML = "You Lost";
             losses++;
             //startNewGame();
-            myScientist.addDetails(sci_ind);*/
+            myScientist.addDetails(sci_ind);
           } else{
             displayResults(myScientist.name, disp, "", myScientist.guesses);
             myScientist.addDetails(sci_ind);
-          }
+          }*/
     }
 
 

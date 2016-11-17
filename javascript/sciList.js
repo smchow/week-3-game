@@ -18,7 +18,8 @@ var obj = JSON.parse(text);
 	obj.scientists[i].url;
 }*/
 /* 
-**Generate a random number and return the scientist is that position from the JSON
+**Generate a random number and 
+**Return the scientist at that position from the JSON
 */
 function getRandomName(){
 	sci_ind = Math.floor(Math.random()*obj.scientists.length);
@@ -26,6 +27,7 @@ function getRandomName(){
 	var pickedSci = new scientist(sci.name, sci.ach, sci.url);
 	return pickedSci;
 }
+
 function scientist(name, ach,url) {
   this.name = name.toLowerCase();
   this.ach = ach;
@@ -36,9 +38,11 @@ function scientist(name, ach,url) {
            " Famous for " +
            this.ach;
   };
+
   this.getPartWord = function(){
       			dispWord ="";
       			wordarr = this.name;
+      			console.log(this.guesses);
       			for(i=0; i< wordarr.length; i++){
       					
       					if (this.guesses.indexOf(wordarr[i]) > -1){
@@ -50,8 +54,15 @@ function scientist(name, ach,url) {
       					
       			}
             	console.log(wordarr + "**" + dispWord);
+            	if (wordarr==dispWord){
+      				console.log("You won");
+      			}
       			return dispWord;
-      }
+      };
+
+   this.newGuess = function(key){
+   	  this.guesses.push(key);
+   }
 
 
 }
