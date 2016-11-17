@@ -64,7 +64,7 @@ function scientist(name, ach,url) {
       };
 
    this.newGuess = function(key){
-   	
+
    	  this.guesses.push(key);
    	  console.log("In new Guess" )
    	  if(this.name.indexOf(key) <0) {
@@ -74,6 +74,7 @@ function scientist(name, ach,url) {
        			this.guessCorrect = false;
        			console.log("You Lost");
        			losses++;
+       			this.displayDetails();
        }
    }
 
@@ -81,7 +82,11 @@ function scientist(name, ach,url) {
    			this.guessCorrect = true;
       		console.log("You won" + this.guessCorrect);
       		wins++;
+      		this.displayDetails();
    }
 
+  this.displayDetails = function(){
+  		details.innerHTML = "<br/>" + this.name + "<br/>" +  this.ach;
+  }
 
 }

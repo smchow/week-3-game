@@ -1,11 +1,11 @@
 	
 
-	function startNewGame(myScientist){
+	/*function startNewGame(myScientist){
 		console.log("start new startNewGame");
 		//guesses = [];
     display.innerHTML = myScientist.getPartWord()+ "<br/> Guesses = "  + myScientist.numGuesses;
 
-	}	
+	}	*/
 
       /*   */
 
@@ -48,7 +48,7 @@
       			return dispWord;
       }*/
 
-      function hasWon(dispWord){
+     /* function hasWon(dispWord){
       	console.log(dispWord.indexOf("-"));
       	if (dispWord.indexOf("-") > -1){
       		return false;
@@ -56,7 +56,7 @@
       		wins++;
       		return true;
       	}
-      }
+      }*/
 
 
 function removeDetails(){
@@ -64,7 +64,7 @@ function removeDetails(){
 }
 
     function playGame(key, myScientist){
-      console.log("Should I continue" + myScientist.guessCorrect + "<br/> Guesses = "  + myScientist.numGuesses);
+      console.log("Should I continue" + myScientist.guessCorrect + "Guesses = "  + myScientist.numGuesses);
       if (myScientist.numGuesses > 0 && !(myScientist.guessCorrect) ){
             myScientist.newGuess(key);
           	display.innerHTML = myScientist.getPartWord();
