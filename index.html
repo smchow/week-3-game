@@ -43,12 +43,9 @@
 
       
       <button id="playButton" class="btn btn-primary btn-xs"><h2>Start New Game</h2></button>
-      <div id="display">
-            
-      </div>
-      <div id="details">
-     
-      </div>
+      <div id="gameStatus">Wins = 0 <br/> Losses = 0</div>
+      <div id="display"></div>
+      <div id="details"></div>
     </div>
 
     
@@ -71,6 +68,7 @@
       //var guesses = [];
       var incorrect = 0;
       var display = document.querySelector("#display");
+      var status = document.querySelector("#gameStatus");
       var won = false;
       //var myScientist;
       var sci_ind = -1;
@@ -79,9 +77,9 @@
         
         var myScientist = getRandomName();
         console.log(myScientist.name);
-        startNewGame(myScientist);
+        //startNewGame(myScientist);
 
-
+        playGame("", myScientist);
         document.onkeyup = function(event){
         var key = event.key;
         console.log(key);

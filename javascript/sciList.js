@@ -32,6 +32,8 @@ function scientist(name, ach,url) {
   this.name = name.toLowerCase();
   this.ach = ach;
   this.guesses = [];
+  this.guessCorrect = false;
+  this.numGuesses = 10;
   this.addDetails = function () {
     return "Name: " +
            this.name +
@@ -43,6 +45,7 @@ function scientist(name, ach,url) {
       			dispWord ="";
       			wordarr = this.name;
       			console.log(this.guesses);
+
       			for(i=0; i< wordarr.length; i++){
       					
       					if (this.guesses.indexOf(wordarr[i]) > -1){
@@ -55,13 +58,29 @@ function scientist(name, ach,url) {
       			}
             	console.log(wordarr + "**" + dispWord);
             	if (wordarr==dispWord){
-      				console.log("You won");
+            		this.changeStatus();
       			}
       			return dispWord;
       };
 
    this.newGuess = function(key){
+   	
    	  this.guesses.push(key);
+   	  console.log("In new Guess" )
+   	  if(this.name.indexOf(key) <0) {
+              this.numGuesses--;
+        }
+       if (this.numGuesses <= 0){
+       			this.guessCorrect = false;
+       			console.log("You Lost");
+       			losses++;
+       }
+   }
+
+   this.changeStatus = function(){
+   			this.guessCorrect = true;
+      		console.log("You won" + this.guessCorrect);
+      		wins++;
    }
 
 

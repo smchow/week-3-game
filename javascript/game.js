@@ -3,7 +3,7 @@
 	function startNewGame(myScientist){
 		console.log("start new startNewGame");
 		//guesses = [];
-    display.innerHTML = myScientist.getPartWord();
+    display.innerHTML = myScientist.getPartWord()+ "<br/> Guesses = "  + myScientist.numGuesses;
 
 	}	
 
@@ -64,8 +64,13 @@ function removeDetails(){
 }
 
     function playGame(key, myScientist){
+      console.log("Should I continue" + myScientist.guessCorrect + "<br/> Guesses = "  + myScientist.numGuesses);
+      
       myScientist.newGuess(key);
     	display.innerHTML = myScientist.getPartWord();
+      gameStatus.innerHTML = "<br/> Wins = " + wins + "<br/> Losses = " + 
+                            losses + "<br/> Guesses = "  + myScientist.numGuesses;
+        
     	 /*if ( myScientist.guesses.length == 0 && key == 'y'){
           		var disp = myScientist.getPartWord();
    				displayResults(myScientist.name, disp, "", myScientist.guesses);
