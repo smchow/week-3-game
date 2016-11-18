@@ -35,12 +35,15 @@ function scientist(name, ach, fname, url) {
   this.guesses = [];
   this.guessCorrect = false;
   this.numGuesses = 10;
+  this.imgFile = "./images/unknown.png";
+  this.error = " ";
 
   this.displayDetails = function () {
     details.innerHTML =  "Name: " +
            this.fname +
            "<br/>" +
-           this.ach;
+           this.ach + 
+           "<br/><img src='" + this.imgFile + "'</img>";
   };
 
   this.getPartWord = function(){
@@ -69,17 +72,25 @@ function scientist(name, ach, fname, url) {
       console.log("Should I continue" + this.guessCorrect + "Guesses = "  + this.numGuesses);
       if (this.numGuesses > 0 && !(this.guessCorrect) ){
             this.newGuess(key);
-          	display.innerHTML = this.getPartWord() + "<br/> Your Guesses: " + this.guesses + 
-                                "<br/> You have " +  + this.numGuesses + " guesses remaining!";
-            gameStatus.innerHTML = "<br/> Wins = " + wins + "<br/> Losses = " + 
-                            losses;
+          	display.innerHTML = this.getPartWord() + "<br/> <br/>Your Letter Guesses: " + this.guesses + 
+                                "<br/><br/> You have " +  + this.numGuesses + " guesses remaining!";
+            gameStatus.innerHTML = "<br/> # of Correct Guesses : " + wins + "<br/> # of Incorrect Guesses : " + 
+                            losses + "<br/>" + this.error;
 
      		}
  		};
 
    this.newGuess = function(key){
-   	  this.guesses.push(key);
-   	  console.log("In new Guess" )
+   	  if (key==""){
+   	  		return;
+   	  }else if(this.guesses.indexOf(key) < 0){
+   	  		this.guesses.push(key);
+   	  		this.error = " ";
+   	  } else{
+   	  		this.error = "You have alreary picked this letter. Guess again";
+   	  		return;
+   	  }
+   	  
    	  if(this.name.indexOf(key) <0) {
               this.numGuesses--;
         }
@@ -98,21 +109,18 @@ function scientist(name, ach, fname, url) {
       		this.displayDetails();
    }
 
-   this.chkInput = function(event){  
-       // var letters = /^[A-Za-z]+$/;  
-       // if(key.value.match(letters))  
-       if(event.which >= 65 && event.which <=122)
-         {  
-          return true;  
-         }  
-       else  
-         {   
-         return false;  
+    /* Checks user input, only allows a-z or A-Z
+    */
+   this.chkInput = function(event){ 
+       if(event.which >= 65 && event.which <=122){  
+          	return true;  
+         } else {   
+         	return false;  
          }  
       }  
 
-  this.displayDetailsx = function(){
+  /*this.displayDetailsx = function(){
   		details.innerHTML = "<br/>" + this.name + "<br/>" +  this.ach;
-  }
+  }*/
 
 }
