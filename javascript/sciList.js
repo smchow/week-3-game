@@ -24,20 +24,21 @@ var obj = JSON.parse(text);
 function getRandomName(){
 	sci_ind = Math.floor(Math.random()*obj.scientists.length);
 	sci = obj.scientists[sci_ind];
-	var pickedSci = new scientist(sci.name, sci.ach, sci.url);
+	var pickedSci = new scientist(sci.name, sci.ach, sci.fname, sci.url);
 	return pickedSci;
 }
 
-function scientist(name, ach,url) {
+function scientist(name, ach, fname, url) {
   this.name = name.toLowerCase();
   this.ach = ach;
+  this.fname = fname;
   this.guesses = [];
   this.guessCorrect = false;
   this.numGuesses = 10;
-  this.addDetails = function () {
-    return "Name: " +
-           this.name +
-           " Famous for " +
+  this.displayDetails = function () {
+    details.innerHTML =  "Name: " +
+           this.fname +
+           "<br/>" +
            this.ach;
   };
 
@@ -85,7 +86,7 @@ function scientist(name, ach,url) {
       		this.displayDetails();
    }
 
-  this.displayDetails = function(){
+  this.displayDetailsx = function(){
   		details.innerHTML = "<br/>" + this.name + "<br/>" +  this.ach;
   }
 

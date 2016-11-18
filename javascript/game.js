@@ -67,7 +67,7 @@
       console.log("Should I continue" + myScientist.guessCorrect + "Guesses = "  + myScientist.numGuesses);
       if (myScientist.numGuesses > 0 && !(myScientist.guessCorrect) ){
             myScientist.newGuess(key);
-          	display.innerHTML = myScientist.getPartWord();
+          	display.innerHTML = myScientist.getPartWord() + "<br/> Your Guesses: " + myScientist.guesses;
             gameStatus.innerHTML = "<br/> Wins = " + wins + "<br/> Losses = " + 
                             losses + "<br/> Guesses = "  + myScientist.numGuesses;
 

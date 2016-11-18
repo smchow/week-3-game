@@ -31,23 +31,45 @@
 
     <style media="screen">
       img {
-        width: 200px;
-        height: 200px;
+        width: 70px;
+        height: 70px;
+        margin-right: 20px;
+        margin-left: 20px;
       }
     </style>
   </head>
   <body>
-    <h1>Guess the scientist</h1>
+   <div class="container">
+   <div><h1><img src="images/unknown.png" />Guess the scientist  <img src="images/unknown.png" /></h1>
+   <div class="row">
+     <div class="jumbotron text-center">
+   
+   <div class="col-md-12">
+   <div id="gameStatus" class="text-center">Wins = 0 <br/> Losses = 0</div>
+   </div>
+   </div>
     
-    <div class="jumbotron text-center">
-
-      
-      <button id="playButton" class="btn btn-primary btn-xs"><h2>Start New Game</h2></button>
-      <div id="gameStatus">Wins = 0 <br/> Losses = 0</div>
-      <div id="display"></div>
-      <div id="details"></div>
     </div>
-
+    
+     <div class="row myBox" >
+     <div class="col-md-12"> 
+   <button id="playButton" class="btn btn-primary btn-xs">Start New Game</button>
+   </div>
+      <div class="col-md-6">
+    <div class="text-center">
+      
+      
+      <div id="display"></div>
+      </div>
+      </div>
+      <div class="col-md-6">
+      
+      <div id="details">
+        
+      </div>
+      </div>
+    </div>
+</div>
     
 	<script type="text/javascript" src="javascript/game.js"></script>
 	<script type="text/javascript" src="javascript/scientist.js"></script>
