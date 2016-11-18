@@ -106,9 +106,14 @@
         myScientist.playGame("");
 
         document.onkeyup = function(event){
-        var key = event.key;
-        console.log(key);
-        myScientist.playGame(key);
+        
+        console.log(event);
+        console.log(myScientist.chkInput(event));
+        if (myScientist.chkInput(event)){
+          //var key = event.key;
+          myScientist.playGame(event.key.toLowerCase());
+          }
+        
       }
       });
      

@@ -98,6 +98,19 @@ function scientist(name, ach, fname, url) {
       		this.displayDetails();
    }
 
+   this.chkInput = function(event){  
+       // var letters = /^[A-Za-z]+$/;  
+       // if(key.value.match(letters))  
+       if(event.which >= 65 && event.which <=122)
+         {  
+          return true;  
+         }  
+       else  
+         {   
+         return false;  
+         }  
+      }  
+
   this.displayDetailsx = function(){
   		details.innerHTML = "<br/>" + this.name + "<br/>" +  this.ach;
   }
