@@ -35,15 +35,16 @@ function scientist(name, ach, fname, url) {
   this.guesses = [];
   this.guessCorrect = false;
   this.numGuesses = 10;
-  this.imgFile = "./images/unknown.png";
+  this.imgFile = "./images/"+this.name + ".jpg";
   this.error = " ";
 
   this.displayDetails = function () {
+  	console.log(this.imgFile);
     details.innerHTML =  "Name: " +
            this.fname +
-           "<br/>" +
-           this.ach + 
-           "<br/><img src='" + this.imgFile + "'</img>";
+           "<br/><img class='detailImg' src='" + this.imgFile + "'</img>" +
+           "<br/> Famous for: " +
+           this.ach ;
   };
 
   this.getPartWord = function(){
@@ -63,7 +64,7 @@ function scientist(name, ach, fname, url) {
       			}
             	console.log(wordarr + "**" + dispWord);
             	if (wordarr==dispWord){
-            		this.changeStatus();
+            		this.whenCorrect();
       			}
       			return dispWord;
       };
@@ -102,9 +103,10 @@ function scientist(name, ach, fname, url) {
        }
    }
 
-   this.changeStatus = function(){
+   /* When the user guesses the correct word increment number of wins
+   */
+   this.whenCorrect = function(){
    			this.guessCorrect = true;
-      		console.log("You won" + this.guessCorrect);
       		wins++;
       		this.displayDetails();
    }
@@ -118,9 +120,4 @@ function scientist(name, ach, fname, url) {
          	return false;  
          }  
       }  
-
-  /*this.displayDetailsx = function(){
-  		details.innerHTML = "<br/>" + this.name + "<br/>" +  this.ach;
-  }*/
-
 }

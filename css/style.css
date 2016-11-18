@@ -43,10 +43,15 @@ img {
 	height: 50px;
 	width: 50px;
 }
+.detailImg {
+	height: 180px;
+	width: 180px;
+	border-style: solid;
+	border-color:#4aaaa5;
+	border-width: 5px;
+	margin: 15pxpx;
+}
 .myBox{
-	/*position:absolute;
-	bottom:0;
-	clear:both;*/
 	background-color: #666666;
 	text-align: center;
 	padding: 15px;
