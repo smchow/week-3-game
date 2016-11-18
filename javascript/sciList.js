@@ -45,7 +45,7 @@ function scientist(name, ach, fname, url) {
        			this.guessCorrect = false;
        			console.log("You Lost");
        			losses++;
-       			this.displayDetails();
+       			this.toggleDetails();
        }
    }
 
@@ -75,7 +75,7 @@ function scientist(name, ach, fname, url) {
    this.whenCorrect = function(){
    			this.guessCorrect = true;
       		wins++;
-      		this.displayDetails();
+      		this.toggleDetails();
    }
 
     /* Checks user input, only allows a-z or A-Z
@@ -91,11 +91,17 @@ function scientist(name, ach, fname, url) {
 
   /* Display some extra details about the scientist.
   Called once the word has been guessed or user has used up all guesses.*/
-  this.displayDetails = function () {
-    details.innerHTML =  "Name: " +
-           this.fname +
-           "<br/><img class='detailImg' src='" + this.imgFile + "'</img>" +
-           "<br/>Famous for: " + this.ach ;
+  this.toggleDetails = function () {
+    display.innerHTML =  "";
+    var msg = "";
+    if(this.guessCorrect) 
+      msg = "You rock! ";
+    else
+      msg = "Oops! You couldn't guess the scientist! ";
+
+    details.innerHTML =  msg +
+           "<br/><img class='detailImg' src='" + this.imgFile + "'</img>"  + "<br/>Name: " +
+           this.fname + "<br/>Famous for: " + this.ach ;
            // +"<br/>For more information " +
            //'<a href="'+this.url+'" target="_blank">click here.</a>'
   };
