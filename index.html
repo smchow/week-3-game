@@ -103,12 +103,12 @@
         var myScientist = getRandomName();
         console.log(myScientist.name);
         document.getElementById("details").innerHTML = "";
-        playGame("", myScientist);
+        myScientist.playGame("");
 
         document.onkeyup = function(event){
         var key = event.key;
         console.log(key);
-         playGame(key, myScientist);
+        myScientist.playGame(key);
       }
       });
      

@@ -35,6 +35,7 @@ function scientist(name, ach, fname, url) {
   this.guesses = [];
   this.guessCorrect = false;
   this.numGuesses = 10;
+
   this.displayDetails = function () {
     details.innerHTML =  "Name: " +
            this.fname +
@@ -64,8 +65,19 @@ function scientist(name, ach, fname, url) {
       			return dispWord;
       };
 
-   this.newGuess = function(key){
+    this.playGame =  function(key){
+      console.log("Should I continue" + this.guessCorrect + "Guesses = "  + this.numGuesses);
+      if (this.numGuesses > 0 && !(this.guessCorrect) ){
+            this.newGuess(key);
+          	display.innerHTML = this.getPartWord() + "<br/> Your Guesses: " + this.guesses + 
+                                "<br/> You have " +  + this.numGuesses + " guesses remaining!";
+            gameStatus.innerHTML = "<br/> Wins = " + wins + "<br/> Losses = " + 
+                            losses;
 
+     		}
+ 		};
+
+   this.newGuess = function(key){
    	  this.guesses.push(key);
    	  console.log("In new Guess" )
    	  if(this.name.indexOf(key) <0) {

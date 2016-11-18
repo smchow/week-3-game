@@ -9,7 +9,7 @@
 
       /*   */
 
-      function displayResults(word, disp, k, guesses){
+     /* function displayResults(word, disp, k, guesses){
         var string = '<p>' + disp + '</p>';
         string += '<p>User chose: ' + k + '<p>';
         string += '<p>Wins: ' + wins; + '</p>';
@@ -26,7 +26,7 @@
           		string += '<p>Guess the next letter</p>';
           	}
         display.innerHTML = string;
-      }
+      }*/
 
       /* 
       */
@@ -63,15 +63,16 @@
   document.getElementById("details").innerHTML = "";
 }*/
 
-    function playGame(key, myScientist){
+/*    function playGame(key, myScientist){
       console.log("Should I continue" + myScientist.guessCorrect + "Guesses = "  + myScientist.numGuesses);
       if (myScientist.numGuesses > 0 && !(myScientist.guessCorrect) ){
             myScientist.newGuess(key);
-          	display.innerHTML = myScientist.getPartWord() + "<br/> Your Guesses: " + myScientist.guesses;
+          	display.innerHTML = myScientist.getPartWord() + "<br/> Your Guesses: " + myScientist.guesses + 
+                                "<br/> You have " +  + myScientist.numGuesses + " guesses remaining!";
             gameStatus.innerHTML = "<br/> Wins = " + wins + "<br/> Losses = " + 
-                            losses + "<br/> Guesses = "  + myScientist.numGuesses;
+                            losses + "<br/> Guesses = " ;
 
-        }
+        }*/
         
     	 /*if ( myScientist.guesses.length == 0 && key == 'y'){
           		var disp = myScientist.getPartWord();
@@ -98,7 +99,7 @@
             displayResults(myScientist.name, disp, "", myScientist.guesses);
             myScientist.addDetails(sci_ind);
           }*/
-    }
+    //}
 
 
       
