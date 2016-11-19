@@ -57,13 +57,12 @@ function scientist(name, ach, fname, url) {
 
             for(i = 0; i < wordarr.length; i++){          
                 if (this.guesses.indexOf(wordarr[i]) > -1){
-
                   dispWord = dispWord + wordarr[i] ;
                 }else{
                   dispWord = dispWord + "- ";
                 }       
             }
-              if (wordarr==dispWord){
+            if (wordarr==dispWord){
                 this.whenCorrect();
             }
             return dispWord;
@@ -109,11 +108,12 @@ function scientist(name, ach, fname, url) {
 }// End tag - scientist object
 
 
-var text =  '{ "scientists" :[{"name":"einstein","fname":"Einstein, Albert", "ach": "Theories of relativity and E = mc2", "url":"www.famousscientists.com/einstein/"},'+
+var text =  '{ "scientists" :[{"name":"franklin", "fname":"Franklin, Benjamin", "ach": "Proving electricity is a force of nature", "url":"www.famousscientists.com/franklin/"},'+
+'{"name":"einstein","fname":"Einstein, Albert", "ach": "Theories of relativity and E = mc2", "url":"www.famousscientists.com/einstein/"},'+
 '{"name":"bell","fname":"Bell, Alexander Graham", "ach": "Invention of the telephone", "url":"www.famousscientists.com/bell/"},'+
 '{"name":"lovelace","fname":"Lovelace, Ada", "ach": "Pioneer/Mother of computing science", "url":"http://www.famousscientists.org/ada-lovelace/"},'+
 '{"name":"bohr", "fname":"Bohr, Niels", "ach": "Quantum mechanics & the atom", "url":"http://www.famousscientists.org/niels-bohr/"},'+
-'{"name":"pythagoras", "fname":"Pythagoras", "ach": "Pythagorean theorem.  Philosopher and mathematician", "url":"www.famousscientists.com/pythagoras/"},'+
+'{"name":"darwin", "fname":"Darwin, Charles", "ach": "Evolution by natural selection", "url":"www.famousscientists.com/darwin/"},'+
 '{"name":"newton", "fname":"Newton, Isaac", "ach": "The laws of motion and gravity. Theory of color. Calculus.", "url":"http://www.famousscientists.org/isaac-newton/"},'+  
 '{"name":"Nobel", "fname":"Nobel, Alfred", "ach": "Invention of dynamite and those prizes", "url":"http://www.famousscientists.org/alfred-nobel/"},'+  
 '{"name":"Curie","fname":"Curie, Marie", "ach": "Discovery of elements. Radioactivity pioneer", "url":"www.famousscientists.com/curie/"}]}';
@@ -125,7 +125,7 @@ var obj = JSON.parse(text);
 **Generate a random number and 
 **Return the scientist at that position from the JSON
 */
-function getRandomName(){
+function getRandomName(){ 
   sci_ind = Math.floor(Math.random()*obj.scientists.length);
   sci = obj.scientists[sci_ind];
   var pickedSci = new scientist(sci.name, sci.ach, sci.fname, sci.url);
